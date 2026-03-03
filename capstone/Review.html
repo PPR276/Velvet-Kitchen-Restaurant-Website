@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review Velvet Kitchen - Share your experience with us.">
+    <meta name="keywords" content="Velvet Kitchen, review, feedback, Chennai, Asian cuisine">
+    <title>Review - Velvet Kitchen</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-image: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: scroll;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #9505ff;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(149, 5, 255, 0.9);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 3.8rem;
+            font-weight: 650;
+            color: white;
+            text-decoration: none;
+            font-family: 'Great Vibes', cursive;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 22px;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .nav-links a:hover {
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        /* Review Form */
+        .review-container {
+            max-width: 600px;
+            margin: 150px auto 50px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .review-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .review-container p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 18px;
+        }
+
+        .stars {
+            font-size: 24px;
+            cursor: pointer;
+            color: grey;
+            transition: color 0.3s ease;
+            -webkit-text-stroke: 1px grey; /* White border for stars */
+        }
+
+        .stars:hover {
+            color: gold;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #9505ff;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        textarea:focus {
+            border-color: #9505ff;
+            box-shadow: 0 0 10px rgba(149, 5, 255, 0.5);
+            outline: none;
+        }
+
+        button {
+            background-color: #9505ff;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 900;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: yellow;
+            color: #9505ff;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #9505ff;
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .review-container {
+                margin: 120px auto 30px;
+                padding: 20px;
+            }
+
+            .review-container h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="home.html"><img src="logo4.png" alt="Velvet Kitchen Logo" style="width: 130px; height: 130px;"></a>
+            <a href="home.html" class="logo">Velvet Kitchen</a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="Reservation2.html">Reservations</a></li>
+                <li><a href="Review.html">Reviews</a></li>
+                <li><a href="signin.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Review Form -->
+    <div class="review-container">
+        <h2><u>Review</u></h2>
+        <p>Your reviews are valued.</p>
+        
+        <div class="name">
+            <label>Food:</label><br>
+            <span class="stars" onclick="rateFood(1)">★</span>
+            <span class="stars" onclick="rateFood(2)">★</span>
+            <span class="stars" onclick="rateFood(3)">★</span>
+            <span class="stars" onclick="rateFood(4)">★</span>
+            <span class="stars" onclick="rateFood(5)">★</span>
+            <input type="hidden" id="ratingFood" name="ratingFood"><br><br>
+
+            <label>Service:</label><br>
+            <span class="stars" onclick="rateService(1)">★</span>
+            <span class="stars" onclick="rateService(2)">★</span>
+            <span class="stars" onclick="rateService(3)">★</span>
+            <span class="stars" onclick="rateService(4)">★</span>
+            <span class="stars" onclick="rateService(5)">★</span>
+            <input type="hidden" id="ratingService" name="ratingService"><br><br>
+
+            <label>Experience:</label><br>
+            <span class="stars" onclick="rateExperience(1)">★</span>
+            <span class="stars" onclick="rateExperience(2)">★</span>
+            <span class="stars" onclick="rateExperience(3)">★</span>
+            <span class="stars" onclick="rateExperience(4)">★</span>
+            <span class="stars" onclick="rateExperience(5)">★</span>
+            <input type="hidden" id="ratingExperience" name="ratingExperience"><br><br>
+
+            <label for="review">Review</label><br>
+            <textarea id="review" name="review" rows="4" cols="30" placeholder="Share your experience..."></textarea><br><br>
+        </div>
+
+        <a href="home.html"><button>Submit</button></a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="https://www.instagram.com/velvet__kitchen?utm_source=qr&igsh=YmFpY2dkcDBzenZm">Instagram</a>
+                        <a href="https://x.com/velvet_kitchen9">Twitter</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>+91 94448 52915</p>
+                    <p>info@velvetkitchen.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Address</h3>
+                    <p>123 Culinary Street</p>
+                    <p>Chennai, 601103</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Velvet Kitchen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add a class to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Star rating functionality
+        function rateFood(stars) {
+            document.getElementById("ratingFood").value = stars;
+            let starElements = document.querySelectorAll('.stars:nth-of-type(-n+5)');
+            starElements.forEach((star, index) => {
+                star.style.color = index < stars ? "gold" : "black";
+            });
+        }
+
+        function rateService(stars) {
+            document.getElementById("ratingService").value = stars;
+            let starElements = document.querySelectorAll('.stars:nth-of-type(n+6):nth-of-type(-n+10)');
+            starElements.forEach((star, index) => {
+                star.style.color = index < stars ? "gold" : "black";
+            });
+        }
+
+        function rateExperience(stars) {
+            document.getElementById("ratingExperience").value = stars;
+            let starElements = document.querySelectorAll('.stars:nth-of-type(n+11):nth-of-type(-n+15)');
+            starElements.forEach((star, index) => {
+                star.style.color = index < stars ? "gold" : "black";
+            });
+        }
+    </script>
+</body>
+</html>

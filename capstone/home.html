@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Velvet Kitchen - Experience the finest Asian cuisine in Chennai. Reserve your table or order online today!">
+    <meta name="keywords" content="Velvet Kitchen, Asian cuisine, fine dining, Chennai, restaurant, food delivery">
+    <title>Velvet Kitchen - Asian Cuisine</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #9505ff;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(149, 5, 255, 0.9);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 3.8rem;
+            font-weight: 650;
+            color: white;
+            text-decoration: none;
+            font-family: 'Great Vibes', cursive;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 22px;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .nav-links a:hover {
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 50px 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: white;
+            color: #333;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: #333;
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .about h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .card1, .card2 {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 2rem 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card1:hover, .card2:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #9505ff;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .card {
+                margin-bottom: 1rem;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="home.html"><img src="logo4.png" alt="Velvet Kitchen Logo" style="width: 130px; height: 130px;"></a>
+            <a href="home.html" class="logo">Velvet Kitchen</a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="Reservation2.html">Reservations</a></li>
+                <li><a href="Review.html">Reviews</a></li>
+                <li><a href="signin.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Velvet Kitchen</h1>
+            <p>Experience the finest Asian cuisine in an elegant setting</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn btn-primary">View Menu</a>
+                <a href="Reservation2.html" class="btn btn-outline">Make Reservation</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2>Welcome to Velvet Kitchen</h2>
+            <div class="info-cards">
+                <div class="card">
+                    <div class="card-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>123 Culinary Street<br>Foodie District<br>Chennai, 601103</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🕒</div>
+                    <h3>Hours</h3>
+                    <p>Mon-Thu: 11:30 AM - 10:00 PM<br>Fri-Sat: 11:30 AM - 11:00 PM<br>Sun: 12:00 PM - 9:00 PM</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📞</div>
+                    <h3>Contact</h3>
+                    <p>Phone: +91 94448 52915<br>Email: info@velvetkitchen.com<br>Reservations recommended</p>
+                </div>
+            </div>
+            <br><br>
+            <h2>About Us</h2>
+            <div class="card1">
+                <h2>Welcome To Velvet Kitchen</h2>
+                <h3>At Velvet Kitchen, we believe that dining is more than just a meal—it’s an artful experience, a celebration of flavors, and a journey of indulgence. Nestled in the heart of Chennai, we bring you a harmonious fusion of traditional Indian essence and modern culinary innovation, curated to delight every palate.</h3>
+            </div>
+            <br><br>
+            <h2>🌟 Velvet Kitchen Specialties 🌟</h2>
+            <div class="card2">
+                <h3>✅ Diverse Seating Options – Choose from cozy 2-seaters, family-friendly 4-seaters, group-friendly 6-seaters, or our luxurious 12-seater tables for larger gatherings.<br>
+                ❄️ AC & Non-AC Dining – Enjoy your meal in a cool, air-conditioned space or embrace a naturally ventilated ambiance in our non-AC dining area.<br>
+                🌿 Scenic Balcony Seating – Experience the perfect dining atmosphere with fresh air, city views, and a relaxing vibe in our exclusive balcony seating.<br>
+                📅 Seamless Online Reservations – Book your table hassle-free with our easy online reservation system to ensure the perfect dining experience.<br>
+                📦 Quick & Reliable Delivery – Savor our signature dishes from the comfort of your home with our fast and fresh doorstep delivery service.<br>
+                👨‍🍳 Masterful Culinary Team – Our expert chefs craft each dish with precision, passion, and an artistic touch, delivering a true gourmet experience.<br>
+                💜 Luxurious Ambiance – Immerse yourself in an elegant and visually stunning setting, where plush décor, ambient lighting, and soothing music create the perfect fine-dining atmosphere.<br>
+                🔮 Personalized Dining Experience – From customized chef’s specials to exclusive VIP dining, we ensure every guest feels special with a tailored culinary journey.</h3>
+            </div>
+            <br><br>
+            <h2>✨ Why Choose Velvet Kitchen? ✨</h2>
+            <div class="card2">
+                <h3>✨
+🍽️ Exquisite Ingredients – Every dish is crafted with fresh, handpicked, and premium-quality ingredients, ensuring an authentic and flavorful experience in every bite.<br>
+🤝 Unparalleled Hospitality – Our dedicated team delivers warm, attentive, and personalized service, making every guest feel cherished and at home.<br>
+📖 Curated Culinary Delights – From signature gourmet creations to beloved traditional favorites, our menu is a symphony of flavors, offering something for every palate.<br>
+🏡 Elegant & Cozy Ambiance – Whether it’s an intimate dinner for two, a family feast, or a grand celebration, our sophisticated interiors, scenic balcony seating, and ambient lighting create the perfect setting for every occasion.<br>
+💜 A Passion for Excellence – At Velvet Kitchen, we blend culinary artistry, impeccable presentation, and a deep love for food to offer an unforgettable dining experience that goes beyond just a meal.<br>
+<br>
+Come, indulge in the extraordinary, and let us make your moments truly unforgettable. ✨</h3>
+            </div>
+            <br><br>
+            <h2>🍷 Join Us at Velvet Kitchen 🍷</h2>
+            <div class="card2">
+                <h3>We invite you to experience the perfect harmony of exquisite flavors, impeccable service, and an ambiance designed for indulgence. At Velvet Kitchen, every meal is more than just dining—it’s a celebration of taste, tradition, and togetherness.
+
+Whether you're savoring a romantic evening, a joyful family gathering, or an intimate dinner with friends, our passionate chefs, warm hospitality, and thoughtfully curated atmosphere ensure an unforgettable experience.
+
+Come, create lasting memories, indulge in the extraordinary, and let us take you on a culinary journey like no other. We can’t wait to welcome you! 💜✨</h3>
+            </div>
+        </div>
+    </section>
+
+    <iframe src="aboutteam.html" width="100%" height="700px"></iframe>
+    <iframe src="ask.html" width="100%" height="900px"></iframe>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="https://www.instagram.com/velvet__kitchen?utm_source=qr&igsh=YmFpY2dkcDBzenZm">Instagram</a>
+                        <a href="https://x.com/velvet_kitchen9">Twitter</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>+91 94448 52915</p>
+                    <p>info@velvetkitchen.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Address</h3>
+                    <p>123 Culinary Street</p>
+                    <p>Chennai, 601103</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Velvet Kitchen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add a class to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
