@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Velvet Kitchen</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Garamond', serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .team-container {
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #6A0DAD;
+            margin-bottom: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .contact-container {
+            margin-top: 50px;
+            background: #9505ff;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-field label {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #D4AF37;
+            background-color: #fff;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: #6A0DAD;
+            box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+            outline: none;
+        }
+
+        .form-field textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .submit-btn {
+            background-color: #D4AF37;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #6A0DAD;
+            transform: scale(1.05);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-container {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="team-container">
+        
+        <div class="team-cards">
+            <!-- Cards here -->
+        </div>
+    </div>
+
+    <!-- New Contact Form Section -->
+    <div class="contact-container">
+        <h2>Ask Us a Question</h2>
+        <form class="contact-form">
+            <div class="form-field">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+
+            <div class="form-field">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+
+            <div class="form-field">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select a Subject</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Feedback">Feedback</option>
+                    <option value="Order Issues">Order Issues</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="question">Your Question</label>
+                <textarea id="question" name="question" required placeholder="Ask your question here..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Question</button>
+        </form>
+    </div>
+</body>
+</html>

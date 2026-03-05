@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reserve a table at Velvet Kitchen - Experience the finest Asian cuisine in Chennai.">
+    <meta name="keywords" content="Velvet Kitchen, reservation, book table, Chennai, Asian cuisine">
+    <title>Reserve a Table - Velvet Kitchen</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-image: url("https://t3.ftcdn.net/jpg/07/54/93/70/360_F_754937013_Tvqma7ELVFvzdXAqJqzcxI90gpwIoD4l.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: scroll;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #9505ff;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(149, 5, 255, 0.9);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 3.8rem;
+            font-weight: 650;
+            color: white;
+            text-decoration: none;
+            font-family: 'Great Vibes', cursive;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 22px;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .nav-links a:hover {
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        /* Reservation Form */
+        .box {
+            max-width: 500px;
+            margin: 150px auto 50px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            text-align: left;
+            color: #fff;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #9505ff;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #9505ff;
+            box-shadow: 0 0 10px rgba(149, 5, 255, 0.5);
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .row input {
+            width: 48%;
+        }
+
+        button {
+            background-color: #9505ff;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 900;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: yellow;
+            color: #9505ff;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #9505ff;
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .box {
+                margin: 120px auto 30px;
+                padding: 20px;
+            }
+
+            .box h2 {
+                font-size: 2rem;
+            }
+
+            .row {
+                flex-direction: column;
+            }
+
+            .row input {
+                width: 100%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="home.html"><img src="logo4.png" alt="Velvet Kitchen Logo" style="width: 130px; height: 130px;"></a>
+            <a href="home.html" class="logo">Velvet Kitchen</a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="Reservation2.html">Reservations</a></li>
+                <li><a href="Review.html">Reviews</a></li>
+                <li><a href="signin.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Reservation Form -->
+    <div class="box">
+        <h2><u>Reserve a Table</u></h2>
+        <form>
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name here" required>
+
+            <label for="phone">PHONE NUMBER</label>
+            <input type="number" id="phone" name="phone" placeholder="(000) 000-0000" required>
+
+            <div class="row">
+                <div>
+                    <label for="reservation-date">BOOKING DATE</label>
+                    <input type="date" id="reservation-date" name="reservation-date" required>
+                </div>
+                <div>
+                    <label for="reservation-time">TIME</label>
+                    <input type="time" id="reservation-time" name="reservation-time" required>
+                </div>
+            </div>
+
+            <label for="ro">AC / NON-AC</label>
+            <select id="ro" name="ro" required>
+                <option value="-">-</option>
+                <option value="AC">AC</option>
+                <option value="NON-AC">NON-AC</option>
+            </select>
+
+            <label for="ty">SEATING</label>
+            <select id="ty" name="ty" required>
+                <option value="-">-</option>
+                <option value="2-seater">2-seater</option>
+                <option value="4-seater">4-seater</option>
+                <option value="6-seater">6-seater</option>
+                <option value="12-seater">12-seater</option>
+            </select>
+
+            <button type="button" onclick="window.location.href='pay1.html'">Book Now</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="https://www.instagram.com/velvet__kitchen?utm_source=qr&igsh=YmFpY2dkcDBzenZm">Instagram</a>
+                        <a href="https://x.com/velvet_kitchen9">Twitter</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>+91 94448 52915</p>
+                    <p>info@velvetkitchen.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Address</h3>
+                    <p>123 Culinary Street</p>
+                    <p>Chennai, 601103</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Velvet Kitchen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add a class to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
