@@ -3,6 +3,8 @@
 A multi-page restaurant website developed as part of a Frontend Capstone Project.  
 The project simulates a complete restaurant web experience including menu browsing, ordering, reservations, reviews, login system, and feedback.
 
+🌐 Live Demo:
+https://ppr276.github.io/Velvet-Kitchen-Restaurant-Website/
 ---
 
 ## 📌 Project Overview
